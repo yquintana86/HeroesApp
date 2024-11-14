@@ -1,0 +1,30 @@
+<div class="flex flex-column p-2">
+  <h3> Search </h3>
+
+  <mat-form-field>
+    <mat-label> Heroes Search </mat-label>
+    <input type="text"
+    matInput
+    [formControl]="searchInput"
+    (input)="autocompleteOptionsBySearchTerm()"
+    [matAutocomplete]="auto"
+    />
+
+  <mat-autocomplete autoActiveFirstOption
+    #auto="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)">
+    @for (option of heroeOptions; track $index){
+      <mat-option [value]="option">{{option.superhero}}</mat-option>
+    }
+    @if(heroeOptions.length === 0 &&
+        searchInput.value)
+        {
+    <mat-option>
+      Not found anything with search term {{searchInput.value}}
+    </mat-option>
+  }
+  </mat-autocomplete>
+</mat-form-field>
+</div>
+
+{{selectedHeroe | json}}

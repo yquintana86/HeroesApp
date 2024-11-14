@@ -1,0 +1,12 @@
+<h1>Heroe List</h1>
+<mat-divider></mat-divider>
+
+<div class="grid mb-8">
+  @for (heroe of heroes; track $index)
+  {
+  <div class="col-12 sm:col-4 xl:col-2">
+    <heroes-hero-card [heroe]="heroe"></heroes-hero-card>
+  </div>
+
+  }
+</div>
