@@ -25,8 +25,7 @@ getUserById(id: string): Observable<User | undefined>
 
 get currentUser(): User | undefined {
 
-  if(!this.user) return undefined;
-  //return {...this.user};
+  if(!this.user) return undefined; 
   return structuredClone(this.user);
 }
 
